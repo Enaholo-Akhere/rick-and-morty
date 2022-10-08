@@ -78,7 +78,6 @@ const CharacterDetailsComp = () => {
             display: 'flex',
             width: { xs: 400, md: 300 },
             height: { xs: 400, md: 300 },
-            borderRadius: 5,
             marginY: 10,
             marginLeft: '5%',
             margin: 'auto',
@@ -88,7 +87,7 @@ const CharacterDetailsComp = () => {
             component={'img'}
             src={result.image}
             alt='rick-and-morty'
-            sx={{ width: '100%', height: '100%' }}
+            sx={{ width: '100%', height: '100%', borderRadius: 3 }}
           />
         </Box>
         <Box
