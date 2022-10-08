@@ -206,7 +206,7 @@ const CharacterListComp = () => {
               },
             }}
           >
-            <FirstPageIcon sx={{ fontSize: { xs: 18, md: 20 } }} />
+            <FirstPageIcon sx={{ fontSize: { xs: 15, md: 20 } }} />
           </Button>
           <Button
             disabled={count < 2}
@@ -214,19 +214,18 @@ const CharacterListComp = () => {
             onClick={() => setCount((prev) => prev - 1)}
             sx={{
               border: '1px solid gray',
-              borderRadius: 2,
               color: 'gray',
-              m: { xs: 0.1, md: 0.5 },
               transition: '0.4s ease-in',
               cursor: 'pointer',
               p: { xs: 0.5, md: 1 },
+              m: { xs: 0.1, md: 0.5 },
               '&:hover': {
                 color: 'red',
                 boxShadow: 8,
               },
             }}
           >
-            <ArrowBackIcon sx={{ fontSize: { xs: 15, md: 15 } }} />
+            <ArrowBackIcon sx={{ fontSize: { xs: 15, md: 20 } }} />
           </Button>
           {pageArray.map((arr) => {
             return (
@@ -235,12 +234,12 @@ const CharacterListComp = () => {
                   onClick={() => setCount(arr)}
                   sx={{
                     border: '1px solid gray',
-                    borderRadius: 2,
                     color: 'gray',
                     fontSize: { xs: 15, md: 20 },
                     transition: '0.4s ease-in',
                     cursor: 'pointer',
                     p: { xs: 0.5, md: 1 },
+                    m: { xs: 0.1, md: 0.5 },
                     '&:hover': {
                       boxShadow: 8,
                       color: 'red',
@@ -259,12 +258,11 @@ const CharacterListComp = () => {
             onClick={() => setCount((prev) => prev + 1)}
             sx={{
               border: '1px solid gray',
-              borderRadius: 2,
               color: 'gray',
               m: { xs: 0.1, sm: 0.5 },
               transition: '0.4s ease-in',
               cursor: 'pointer',
-              fontSize: { xs: 18, sm: 20 },
+              fontSize: { xs: 15, sm: 20 },
               p: { xs: 0.5, sm: 1 },
               '&:hover': {
                 color: 'red',
@@ -272,7 +270,7 @@ const CharacterListComp = () => {
               },
             }}
           >
-            <ArrowForwardIcon sx={{ fontSize: 15 }} />
+            <ArrowForwardIcon sx={{ fontSize: { xs: 15, md: 20 } }} />
           </Button>
           <Button
             disabled={count >= pageNo}
@@ -280,7 +278,6 @@ const CharacterListComp = () => {
             onClick={() => setCount(pageNo)}
             sx={{
               border: '1px solid gray',
-              borderRadius: 2,
               color: 'gray',
               m: { xs: 0.1, sm: 0.5 },
               transition: '0.4s ease-in',
@@ -293,7 +290,7 @@ const CharacterListComp = () => {
               },
             }}
           >
-            <LastPageIcon sx={{ fontSize: 15 }} />
+            <LastPageIcon sx={{ fontSize: { xs: 15, md: 20 } }} />
           </Button>
         </Box>
       </Box>
