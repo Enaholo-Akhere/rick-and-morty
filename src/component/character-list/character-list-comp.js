@@ -174,7 +174,7 @@ const CharacterListComp = () => {
             );
           })}
       </Grid>
-      <Box sx={{ mb: 5, zIndex: 100, mt: 20 }}>
+      <Box sx={{ mb: 5, zIndex: 100, mt: 20, mx: 'auto' }}>
         <Box
           sx={{
             display: 'flex',
@@ -184,6 +184,8 @@ const CharacterListComp = () => {
             bottom: 20,
             zIndex: 1000,
             backgroundColor: 'rgb(255, 255, 255)',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
           }}
         >
           <Button
@@ -219,11 +221,12 @@ const CharacterListComp = () => {
               cursor: 'pointer',
               p: { xs: 0.5, md: 1 },
               '&:hover': {
+                color: 'red',
                 boxShadow: 8,
               },
             }}
           >
-            <ArrowBackIcon sx={{ fontSize: { xs: 18, md: 25 } }} />
+            <ArrowBackIcon sx={{ fontSize: { xs: 15, md: 15 } }} />
           </Button>
           {pageArray.map((arr) => {
             return (
@@ -234,8 +237,7 @@ const CharacterListComp = () => {
                     border: '1px solid gray',
                     borderRadius: 2,
                     color: 'gray',
-                    m: { xs: 0.1, md: 0.5 },
-                    fontSize: { xs: 18, md: 25 },
+                    fontSize: { xs: 15, md: 20 },
                     transition: '0.4s ease-in',
                     cursor: 'pointer',
                     p: { xs: 0.5, md: 1 },
