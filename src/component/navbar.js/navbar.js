@@ -12,7 +12,6 @@ const rick_and_morty_logo = require('../../assets/rick-and-morty-logo.png');
 const NavBar = ({ onClose }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  console.log('pathname', navigate);
   const mdUp = useMediaQuery((theme) => theme.breakpoints.up('md'), {
     defaultMatches: true,
     noSsr: false,
@@ -33,7 +32,7 @@ const NavBar = ({ onClose }) => {
           p: 2,
         }}
       >
-        {pathname === '/character-list' ? (
+        {pathname === '/' ? (
           <Box sx={{ display: { xs: 'block', lg: 'none' } }}>
             <MenuIcon
               onClick={() => onClose(true)}
@@ -61,7 +60,7 @@ const NavBar = ({ onClose }) => {
             margin: 'auto',
           }}
         >
-          <Link to='/character-list'>
+          <Link to='/'>
             <Box
               sx={{
                 //backgroundColor: 'rgb(59, 59, 59)',

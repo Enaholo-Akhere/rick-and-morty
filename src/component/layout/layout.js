@@ -3,7 +3,8 @@ import NavBar from '../navbar.js/navbar';
 import Sidebar from '../sidebar/sidebar';
 import { useState } from 'react';
 import ScrollTo from '../../utilities/scroll-to';
-const Layout = ({ children }) => {
+import { useEffect } from 'react';
+const Layout = (props) => {
   const [open, onClose] = useState(false);
 
   return (
@@ -12,7 +13,7 @@ const Layout = ({ children }) => {
         <NavBar onClose={() => onClose(true)} />
         <Sidebar open={open} onClose={() => onClose(false)} />
       </Box>
-      {children}
+      {props.children}
       <ScrollTo />
     </Box>
   );

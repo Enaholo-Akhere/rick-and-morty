@@ -142,7 +142,7 @@ const Sidebar = (props) => {
     );
   };
 
-  if (pathname === '/character-list') {
+  if (pathname === '/') {
     if (lgUp) {
       return (
         <Drawer

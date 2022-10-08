@@ -53,256 +53,249 @@ const CharacterListComp = () => {
       });
   }, [count, gender, status, name]);
 
- 
-
-    return (
-      <Box
-        sx={{
-          width: { xs: '90%', lg: '60%' },
-          marginRight: { xs: 'auto', lg: '10%' },
-          marginLeft: { xs: 'auto', lg: '30%' },
-          marginTop: 15,
-          zIndex: 1000,
-        }}
-      >
-        <Grid container spacing={4} zIndex={1000}>
-          {characterList &&
-            characterList?.map((list) => {
-              return (
-                <Grid item xs={12} md={6} lg={4} key={list.id}>
+  return (
+    <Box
+      sx={{
+        width: { xs: '90%', lg: '60%' },
+        marginRight: { xs: 'auto', lg: '10%' },
+        marginLeft: { xs: 'auto', lg: '30%' },
+        marginTop: 15,
+        zIndex: 1000,
+      }}
+    >
+      <Grid container spacing={4} zIndex={1000}>
+        {characterList &&
+          characterList?.map((list) => {
+            return (
+              <Grid item xs={12} md={6} lg={4} key={list.id}>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    borderRadius: 3,
+                    overflow: 'hidden',
+                  }}
+                >
+                  <Box sx={{ backgroundColor: 'rgb(61, 61, 61)' }}>
+                    <Box
+                      sx={{
+                        width: 60,
+                        height: 60,
+                        margin: 'auto',
+                        py: 3,
+                      }}
+                    >
+                      <Box
+                        component={'img'}
+                        src={list.image}
+                        sx={{
+                          textAlign: 'center',
+                          color: 'rgb(217, 217, 217)',
+                          pb: 1,
+                          height: 1,
+                          width: 1,
+                          margin: 'auto',
+                          borderRadius: '100%',
+                        }}
+                      />
+                    </Box>
+                  </Box>
                   <Box
                     sx={{
                       display: 'flex',
                       flexDirection: 'column',
-                      borderRadius: 3,
-                      overflow: 'hidden',
+                      justifyContent: 'flex-start',
+                      padding: 4,
+                      backgroundColor: 'rgb(217, 217, 217)',
                     }}
                   >
-                    <Box sx={{ backgroundColor: 'rgb(61, 61, 61)' }}>
-                      <Box
-                        sx={{
-                          width: 60,
-                          height: 60,
-                          margin: 'auto',
-                          py: 3,
-                        }}
-                      >
-                        <Box
-                          component={'img'}
-                          src={list.image}
-                          sx={{
-                            textAlign: 'center',
-                            color: 'rgb(217, 217, 217)',
-                            pb: 1,
-                            height: 1,
-                            width: 1,
-                            margin: 'auto',
-                            borderRadius: '100%',
-                          }}
-                        />
-                      </Box>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                      }}
+                    >
+                      <Typography sx={{ textAlign: 'left' }}>Name: </Typography>
+                      <Typography sx={{ textAlign: 'right' }}>
+                        {list.name}
+                      </Typography>
                     </Box>
                     <Box
                       sx={{
                         display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'flex-start',
-                        padding: 4,
-                        backgroundColor: 'rgb(217, 217, 217)',
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
                       }}
                     >
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          justifyContent: 'space-between',
-                        }}
-                      >
-                        <Typography sx={{ textAlign: 'left' }}>
-                          Name:{' '}
-                        </Typography>
-                        <Typography sx={{ textAlign: 'right' }}>
-                          {list.name}
-                        </Typography>
-                      </Box>
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          justifyContent: 'space-between',
-                        }}
-                      >
-                        <Typography sx={{ textAlign: 'left' }}>
-                          Specie:
-                        </Typography>
-                        <Typography sx={{ textAlign: 'right' }}>
-                          {list.species}
-                        </Typography>
-                      </Box>
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          justifyContent: 'space-between',
-                        }}
-                      >
-                        <Typography sx={{ textAlign: 'left' }}>
-                          Status:{' '}
-                        </Typography>
-                        <Typography sx={{ textAlign: 'right' }}>
-                          {list.status}
-                        </Typography>
-                      </Box>
+                      <Typography sx={{ textAlign: 'left' }}>
+                        Specie:
+                      </Typography>
+                      <Typography sx={{ textAlign: 'right' }}>
+                        {list.species}
+                      </Typography>
                     </Box>
                     <Box
                       sx={{
-                        backgroundColor: 'rgb(124, 124, 124)',
                         display: 'flex',
-                        justifyContent: 'center',
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
                       }}
                     >
-                      <Button
-                        variant='text'
-                        sx={{
-                          textAlign: 'center',
-                          padding: 3,
-                          color: 'lightgray',
-                        }}
-                        onClick={() =>
-                          navigate(`/character-details/${list.id}`)
-                        }
-                      >
-                        Details
-                      </Button>
+                      <Typography sx={{ textAlign: 'left' }}>
+                        Status:{' '}
+                      </Typography>
+                      <Typography sx={{ textAlign: 'right' }}>
+                        {list.status}
+                      </Typography>
                     </Box>
                   </Box>
-                </Grid>
-              );
-            })}
-        </Grid>
-        <Box sx={{ my: 5, zIndex: 100, mt: 20 }}>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center',
-              position: 'fixed',
-              bottom: 20,
-              zIndex: 1000,
-              backgroundColor: 'rgb(255, 255, 255)',
-            }}
-          >
-            <Button
-              disabled={count < 2}
-              variant='outlined'
-              onClick={() => setCount(1)}
-              sx={{
-                border: '1px solid gray',
-                borderRadius: 2,
-                color: 'gray',
-                m: { xs: 0.1, md: 0.5 },
-                transition: '0.4s ease-in',
-                cursor: 'pointer',
-                p: { xs: 0.5, md: 1 },
-                '&:hover': {
-                  color: 'red',
-                  boxShadow: 8,
-                },
-              }}
-            >
-              <FirstPageIcon sx={{ fontSize: { xs: 18, md: 20 } }} />
-            </Button>
-            <Button
-              disabled={count < 2}
-              variant='outlined'
-              onClick={() => setCount((prev) => prev - 1)}
-              sx={{
-                border: '1px solid gray',
-                borderRadius: 2,
-                color: 'gray',
-                m: { xs: 0.1, md: 0.5 },
-                transition: '0.4s ease-in',
-                cursor: 'pointer',
-                p: { xs: 0.5, md: 1 },
-                '&:hover': {
-                  color: 'red',
-                  boxShadow: 8,
-                },
-              }}
-            >
-              <ArrowBackIcon sx={{ fontSize: { xs: 18, md: 25 } }} />
-            </Button>
-            {pageArray.map((arr) => {
-              return (
-                <Box key={arr}>
-                  <Typography
-                    onClick={() => setCount(arr)}
+                  <Box
                     sx={{
-                      border: '1px solid gray',
-                      borderRadius: 2,
-                      color: 'gray',
-                      m: { xs: 0.1, md: 0.5 },
-                      fontSize: { xs: 18, md: 25 },
-                      transition: '0.4s ease-in',
-                      cursor: 'pointer',
-                      p: { xs: 0.5, md: 1 },
-                      '&:hover': {
-                        boxShadow: 8,
-                        color: 'red',
-                      },
+                      backgroundColor: 'rgb(124, 124, 124)',
+                      display: 'flex',
+                      justifyContent: 'center',
                     }}
                   >
-                    {arr}
-                  </Typography>
+                    <Button
+                      variant='text'
+                      sx={{
+                        textAlign: 'center',
+                        padding: 3,
+                        color: 'lightgray',
+                      }}
+                      onClick={() => navigate(`/character-details/${list.id}`)}
+                    >
+                      Details
+                    </Button>
+                  </Box>
                 </Box>
-              );
-            })}
+              </Grid>
+            );
+          })}
+      </Grid>
+      <Box sx={{ mb: 5, zIndex: 100, mt: 20 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            position: 'fixed',
+            bottom: 20,
+            zIndex: 1000,
+            backgroundColor: 'rgb(255, 255, 255)',
+          }}
+        >
+          <Button
+            disabled={count < 2}
+            variant='outlined'
+            onClick={() => setCount(1)}
+            sx={{
+              border: '1px solid gray',
+              borderRadius: 2,
+              color: 'gray',
+              m: { xs: 0.1, md: 0.5 },
+              transition: '0.4s ease-in',
+              cursor: 'pointer',
+              p: { xs: 0.5, md: 1 },
+              '&:hover': {
+                color: 'red',
+                boxShadow: 8,
+              },
+            }}
+          >
+            <FirstPageIcon sx={{ fontSize: { xs: 18, md: 20 } }} />
+          </Button>
+          <Button
+            disabled={count < 2}
+            variant='outlined'
+            onClick={() => setCount((prev) => prev - 1)}
+            sx={{
+              border: '1px solid gray',
+              borderRadius: 2,
+              color: 'gray',
+              m: { xs: 0.1, md: 0.5 },
+              transition: '0.4s ease-in',
+              cursor: 'pointer',
+              p: { xs: 0.5, md: 1 },
+              '&:hover': {
+                boxShadow: 8,
+              },
+            }}
+          >
+            <ArrowBackIcon sx={{ fontSize: { xs: 18, md: 25 } }} />
+          </Button>
+          {pageArray.map((arr) => {
+            return (
+              <Box key={arr}>
+                <Typography
+                  onClick={() => setCount(arr)}
+                  sx={{
+                    border: '1px solid gray',
+                    borderRadius: 2,
+                    color: 'gray',
+                    m: { xs: 0.1, md: 0.5 },
+                    fontSize: { xs: 18, md: 25 },
+                    transition: '0.4s ease-in',
+                    cursor: 'pointer',
+                    p: { xs: 0.5, md: 1 },
+                    '&:hover': {
+                      boxShadow: 8,
+                      color: 'red',
+                    },
+                  }}
+                >
+                  {arr}
+                </Typography>
+              </Box>
+            );
+          })}
 
-            <Button
-              disabled={count === pageNo}
-              variant='outlined'
-              onClick={() => setCount((prev) => prev + 1)}
-              sx={{
-                border: '1px solid gray',
-                borderRadius: 2,
-                color: 'gray',
-                m: { xs: 0.1, md: 0.5 },
-                transition: '0.4s ease-in',
-                cursor: 'pointer',
-                fontSize: { xs: 18, md: 25 },
-                p: { xs: 0.5, md: 1 },
-                '&:hover': {
-                  color: 'red',
-                  boxShadow: 8,
-                },
-              }}
-            >
-              <ArrowForwardIcon sx={{ fontSize: 15 }} />
-            </Button>
-            <Button
-              disabled={count >= pageNo}
-              variant='outlined'
-              onClick={() => setCount(pageNo)}
-              sx={{
-                border: '1px solid gray',
-                borderRadius: 2,
-                color: 'gray',
-                m: { xs: 0.1, md: 0.5 },
-                transition: '0.4s ease-in',
-                cursor: 'pointer',
-                p: { xs: 0.5, md: 1 },
-                fontSize: 15,
-                '&:hover': {
-                  color: 'red',
-                  boxShadow: 8,
-                },
-              }}
-            >
-              <LastPageIcon sx={{ fontSize: 15 }} />
-            </Button>
-          </Box>
+          <Button
+            disabled={count === pageNo}
+            variant='outlined'
+            onClick={() => setCount((prev) => prev + 1)}
+            sx={{
+              border: '1px solid gray',
+              borderRadius: 2,
+              color: 'gray',
+              m: { xs: 0.1, sm: 0.5 },
+              transition: '0.4s ease-in',
+              cursor: 'pointer',
+              fontSize: { xs: 18, sm: 20 },
+              p: { xs: 0.5, sm: 1 },
+              '&:hover': {
+                color: 'red',
+                boxShadow: 8,
+              },
+            }}
+          >
+            <ArrowForwardIcon sx={{ fontSize: 15 }} />
+          </Button>
+          <Button
+            disabled={count >= pageNo}
+            variant='outlined'
+            onClick={() => setCount(pageNo)}
+            sx={{
+              border: '1px solid gray',
+              borderRadius: 2,
+              color: 'gray',
+              m: { xs: 0.1, sm: 0.5 },
+              transition: '0.4s ease-in',
+              cursor: 'pointer',
+              p: { xs: 0.5, sm: 1 },
+              fontSize: 15,
+              '&:hover': {
+                color: 'red',
+                boxShadow: 8,
+              },
+            }}
+          >
+            <LastPageIcon sx={{ fontSize: 15 }} />
+          </Button>
         </Box>
       </Box>
-    );
-}
+    </Box>
+  );
+};
 export default CharacterListComp;

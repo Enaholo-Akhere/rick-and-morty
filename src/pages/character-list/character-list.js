@@ -4,7 +4,7 @@ import Layout from '../../component/layout/layout';
 const CharacterList = () => {
   return (
     <Layout>
-      <CharacterListComp />
+      <CharacterListComp show={true} />
     </Layout>
   );
 };

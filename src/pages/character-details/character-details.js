@@ -4,7 +4,7 @@ import CharacterDetailsComp from '../../component/character-details/ character-d
 const CharacterDetails = () => {
   return (
     <Layout>
-      <CharacterDetailsComp />
+      <CharacterDetailsComp  />
     </Layout>
   );
 };
