@@ -2,14 +2,10 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Button } from '@mui/material';
 
-const rick_and_morty_logo = require('../../assets/rick-and-morty-logo.png');
-
 const CharacterDetailsComp = () => {
-  const { loading, setLoading } = useState(false);
   const [result, setResult] = useState({});
   const [episodeUrl, setEpisodeUrl] = useState('');
   const [episodesResult, setEpisodeResults] = useState({});
@@ -38,7 +34,9 @@ const CharacterDetailsComp = () => {
       .then(({ data }) => {
         setResult(data);
       })
-      .catch((err) => console.error(err.message));
+      .catch((err) => {
+        console.error(err.message);
+      });
   }, [id]);
 
   useEffect(() => {
@@ -48,7 +46,9 @@ const CharacterDetailsComp = () => {
         console.log('episode details', data);
         setEpisodeResults(data);
       })
-      .catch((err) => console.error(err.message));
+      .catch((err) => {
+        console.error(err.message);
+      });
   }, [episodeUrl]);
 
   return (
@@ -76,10 +76,11 @@ const CharacterDetailsComp = () => {
         <Box
           sx={{
             display: 'flex',
-            width: { xs: 450, md: 300 },
-            height: { xs: 450, md: 300 },
+            width: { xs: 400, md: 300 },
+            height: { xs: 400, md: 300 },
             borderRadius: 5,
             marginY: 10,
+            marginLeft: '5%',
             margin: 'auto',
           }}
         >
@@ -95,9 +96,10 @@ const CharacterDetailsComp = () => {
             display: 'flex',
             flexDirection: 'column',
             marginY: 10,
-            width: { xs: '80%', md: '50%' },
-            margin: 'auto',
+            width: { xs: '80%', md: '45%' },
+
             flexWrap: 'wrap',
+            marginLeft: '5%',
           }}
         >
           {details &&
@@ -127,11 +129,11 @@ const CharacterDetailsComp = () => {
       </Box>
       <Box
         sx={{
-          width: { xs: '80%', md: '100%' },
+          width: { xs: '90%', md: '100%', px: 5 },
           overflow: 'auto',
           display: 'flex',
           borderBottom: '2px solid gray',
-          my: 10,
+          my: 3,
           p: 0,
         }}
       >
@@ -160,7 +162,8 @@ const CharacterDetailsComp = () => {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          marginY: 5,
+          marginTop: 5,
+          marginBottom: 2,
           width: { xs: '80%', md: '45%' },
           margin: 'auto',
           flexWrap: 'wrap',
@@ -175,7 +178,8 @@ const CharacterDetailsComp = () => {
                   display: 'flex',
                   flexDirection: 'row',
                   justifyContent: 'space-between',
-                  my: 1,
+                  mt: 1,
+                  mb: 5,
                 }}
               >
                 <Typography sx={{ textAlign: 'left', display: 'flex' }}>
