@@ -176,7 +176,7 @@ const Sidebar = (props) => {
         sx: {
           backgroundColor: 'rgb(239, 239, 239)',
           color: '#FFFFFF',
-          width: 400,
+          width: { xs: 280, md: 400 },
         },
       }}
       sx={{ zIndex: (theme) => theme.zIndex.appBar + 100 }}
