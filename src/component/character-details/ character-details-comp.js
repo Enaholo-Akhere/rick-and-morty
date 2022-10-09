@@ -76,10 +76,10 @@ const CharacterDetailsComp = () => {
         <Box
           sx={{
             display: 'flex',
-            width: { xs: 400, md: 300 },
+            width: { xs: '90%', md: 300 },
             height: { xs: 400, md: 300 },
             marginY: 10,
-            marginLeft: '5%',
+            marginLeft: {xs: '', md: '5%'},
             margin: 'auto',
           }}
         >

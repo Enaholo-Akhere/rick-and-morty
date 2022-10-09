@@ -64,7 +64,7 @@ const NavBar = ({ onClose }) => {
             <Box
               sx={{
                 //backgroundColor: 'rgb(59, 59, 59)',
-                width: 400,
+                width: { xs: 250, md: 400 },
                 height: 50,
                 margin: 'auto',
                 marginTop: -1,

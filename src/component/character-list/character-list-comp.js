@@ -188,45 +188,50 @@ const CharacterListComp = () => {
             transform: 'translate(-50%, -50%)',
           }}
         >
-          <Button
-            disabled={count < 2}
-            variant='outlined'
-            onClick={() => setCount(1)}
-            sx={{
-              border: '1px solid gray',
-              borderRadius: 2,
-              color: 'gray',
-              m: { xs: 0.1, md: 0.5 },
-              transition: '0.4s ease-in',
-              cursor: 'pointer',
-              p: { xs: 0.5, md: 1 },
-              '&:hover': {
-                color: 'red',
-                boxShadow: 8,
-              },
-            }}
-          >
-            <FirstPageIcon sx={{ fontSize: { xs: 15, md: 20 } }} />
-          </Button>
-          <Button
-            disabled={count < 2}
-            variant='outlined'
-            onClick={() => setCount((prev) => prev - 1)}
-            sx={{
-              border: '1px solid gray',
-              color: 'gray',
-              transition: '0.4s ease-in',
-              cursor: 'pointer',
-              p: { xs: 0.5, md: 1 },
-              m: { xs: 0.1, md: 0.5 },
-              '&:hover': {
-                color: 'red',
-                boxShadow: 8,
-              },
-            }}
-          >
-            <ArrowBackIcon sx={{ fontSize: { xs: 15, md: 20 } }} />
-          </Button>
+          <Box>
+            <Typography
+              disabled={count < 2}
+              onClick={() => setCount(1)}
+              sx={{
+                color: 'gray',
+                backgroundColor: count < 2 ? 'rgb(220, 220, 220)' : 'none',
+                border: count < 2 ? '0.5px solid lightgray' : '1px solid gray',
+                cursor: count < 2 ? '' : 'pointer',
+                // fontSize: { xs: 15, md: 20 },
+                transition: '0.4s ease-in',
+                p: { xs: 0.5, md: 1 },
+                m: { xs: 0.1, md: 0.5 },
+                '&:hover': {
+                  boxShadow: count < 2 ? 'none' : 8,
+                  color: count < 2 ? 'none' : 'red',
+                },
+              }}
+            >
+              <FirstPageIcon sx={{ fontSize: { xs: 15, md: 18, p: 0 } }} />
+            </Typography>
+          </Box>
+          <Box>
+            <Typography
+              disabled={count < 2}
+              onClick={() => setCount((prev) => (prev < 2 ? 1 : prev - 1))}
+              sx={{
+                backgroundColor: count < 2 ? 'rgb(220, 220, 220)' : 'none',
+                border: count < 2 ? '0.5px solid lightgray' : '1px solid gray',
+                cursor: count < 2 ? '' : 'pointer',
+                color: 'gray',
+                // fontSize: { xs: 15, md: 20 },
+                transition: '0.4s ease-in',
+                p: { xs: 0.5, md: 1 },
+                m: { xs: 0.1, md: 0.5 },
+                '&:hover': {
+                  boxShadow: count < 2 ? 'none' : 8,
+                  color: count < 2 ? 'none' : 'red',
+                },
+              }}
+            >
+              <ArrowBackIcon sx={{ fontSize: { xs: 15, md: 18, p: 0 } }} />
+            </Typography>
+          </Box>
           {pageArray.map((arr) => {
             return (
               <Box key={arr}>
@@ -235,7 +240,7 @@ const CharacterListComp = () => {
                   sx={{
                     border: '1px solid gray',
                     color: 'gray',
-                    fontSize: { xs: 15, md: 20 },
+                    //fontSize: { xs: 15, md: 20 },
                     transition: '0.4s ease-in',
                     cursor: 'pointer',
                     p: { xs: 0.5, md: 1 },
@@ -251,47 +256,56 @@ const CharacterListComp = () => {
               </Box>
             );
           })}
-
-          <Button
-            disabled={count === pageNo}
-            variant='outlined'
-            onClick={() => setCount((prev) => prev + 1)}
-            sx={{
-              border: '1px solid gray',
-              color: 'gray',
-              m: { xs: 0.1, sm: 0.5 },
-              transition: '0.4s ease-in',
-              cursor: 'pointer',
-              fontSize: { xs: 15, sm: 20 },
-              p: { xs: 0.5, sm: 1 },
-              '&:hover': {
-                color: 'red',
-                boxShadow: 8,
-              },
-            }}
-          >
-            <ArrowForwardIcon sx={{ fontSize: { xs: 15, md: 20 } }} />
-          </Button>
-          <Button
-            disabled={count >= pageNo}
-            variant='outlined'
-            onClick={() => setCount(pageNo)}
-            sx={{
-              border: '1px solid gray',
-              color: 'gray',
-              m: { xs: 0.1, sm: 0.5 },
-              transition: '0.4s ease-in',
-              cursor: 'pointer',
-              p: { xs: 0.5, sm: 1 },
-              fontSize: 15,
-              '&:hover': {
-                color: 'red',
-                boxShadow: 8,
-              },
-            }}
-          >
-            <LastPageIcon sx={{ fontSize: { xs: 15, md: 20 } }} />
-          </Button>
+          <Box>
+            <Typography
+              disabled={count === pageNo}
+              onClick={() =>
+                setCount((prev) => (prev === pageNo ? pageNo : prev + 1))
+              }
+              sx={{
+                color: 'gray',
+                //fontSize: { xs: 15, md: 20 },
+                transition: '0.4s ease-in',
+                p: { xs: 0.5, md: 1 },
+                m: { xs: 0.1, md: 0.5 },
+                backgroundColor:
+                  count === pageNo ? 'rgb(220, 220, 220)' : 'none',
+                border:
+                  count === pageNo ? '0.5px solid lightgray' : '1px solid gray',
+                cursor: count === pageNo ? '' : 'pointer',
+                '&:hover': {
+                  boxShadow: count === pageNo ? 'none' : 8,
+                  color: count === pageNo ? 'none' : 'red',
+                },
+              }}
+            >
+              <ArrowForwardIcon sx={{ fontSize: { xs: 15, md: 18, p: 0 } }} />
+            </Typography>
+          </Box>
+          <Box>
+            <Typography
+              disabled={count >= pageNo}
+              onClick={() => setCount(pageNo)}
+              sx={{
+                color: 'gray',
+                //fontSize: { xs: 15, md: 20 },
+                transition: '0.4s ease-in',
+                p: { xs: 0.5, md: 1 },
+                m: { xs: 0.1, md: 0.5 },
+                backgroundColor:
+                  count === pageNo ? 'rgb(220, 220, 220)' : 'none',
+                border:
+                  count === pageNo ? '0.5px solid lightgray' : '1px solid gray',
+                cursor: count === pageNo ? '' : 'pointer',
+                '&:hover': {
+                  boxShadow: count === pageNo ? 'none' : 8,
+                  color: count === pageNo ? 'none' : 'red',
+                },
+              }}
+            >
+              <LastPageIcon sx={{ fontSize: { xs: 15, md: 18, py: 0.2 } }} />
+            </Typography>
+          </Box>
         </Box>
       </Box>
     </Box>
