@@ -40,7 +40,7 @@ const NavBar = ({ onClose }) => {
             />
           </Box>
         ) : (
-          <Box sx={{ display: 'flex' }}>
+          <Box sx={{ display: 'flex', marginLeft: { xs: 5, md: '' } }}>
             <Button
               startIcon={<WestIcon />}
               variant='text'
