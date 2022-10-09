@@ -32,7 +32,7 @@ const ScrollTo = () => {
     >
       {showBtn && (
         <div className={Classes.icon}>
-          <ArrowUpwardIcon />
+          <ArrowUpwardIcon className={Classes.iconLogo} />
         </div>
       )}
     </div>
