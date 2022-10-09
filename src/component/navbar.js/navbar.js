@@ -67,6 +67,7 @@ const NavBar = ({ onClose }) => {
                 width: { xs: 250, md: 400 },
                 height: 50,
                 margin: 'auto',
+                marginRight: { xs: 10, md: '' },
                 marginTop: -1,
               }}
             >
